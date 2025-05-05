@@ -10,13 +10,16 @@
 #  movie_id   :integer
 #
 class Character < ApplicationRecord
-  def movie
-    key = self.movie_id
 
-    matching_set = Movie.where({ :id => key })
+  belongs_to(:movie)
+  belongs_to(:actor)
 
-    the_one = matching_set.at(0)
 
-    return the_one
-  end
+
+  #def actors
+   #key = self.actor_id
+    #matching_set = Director.where({:id => key})
+    #the_one = matching_set.at(0)
+    #return the_one
+  #end
 end
